@@ -14,4 +14,12 @@ suspend fun getTrending(
 suspend fun getTopRated(
   @Query("api_key") api_key:String="98cab6930c64eb0b9e6ba2885bf7d48a"
 ): TrendingPojo
+@GET("movie/popular")
+suspend fun getPopularMovies(
+  @Query("api_key")  api_key:String="98cab6930c64eb0b9e6ba2885bf7d48a"
+):TrendingPojo
+  @GET("discover/movie")
+  suspend fun getDiscoverMovies(
+    @Query("api_key")  api_key:String="98cab6930c64eb0b9e6ba2885bf7d48a"
+  ):TrendingPojo
 }

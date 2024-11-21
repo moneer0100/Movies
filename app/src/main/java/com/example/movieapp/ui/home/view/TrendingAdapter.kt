@@ -10,9 +10,7 @@ import com.bumptech.glide.Glide
 import com.example.movieapp.R
 import com.example.movieapp.databinding.TrendingItemBinding
 import com.example.movieapp.model.pojo.Result
-
-
-class TrendingAdapter():ListAdapter<Result,TrendingAdapter.ViewHolder>(MyDifituil()) {
+class TrendingAdapter(private val onitemClick: (Result) -> Unit ):ListAdapter<Result,TrendingAdapter.ViewHolder>(MyDifituil()) {
     private lateinit var binding: TrendingItemBinding
     class MyDifituil:DiffUtil.ItemCallback<Result>(){
         override fun areItemsTheSame(oldItem: Result, newItem: Result): Boolean {
@@ -35,11 +33,15 @@ return ViewHolder(binding)
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val trendingMovie: Result =getItem(position)
         Glide.with(holder.itemView.context)
-            .load("https://image.tmdb.org/t/p/w342${trendingMovie.posterPath}")
-            .placeholder(R.drawable.video)  // إضافة صورة بديلة في حالة تحميل الصورة
-            .error(R.drawable.error)  // Base URL + posterPath
-            .into(holder.binding.imageTrendingid)      // Error image
+            ?.load("https://image.tmdb.org/t/p/w342${trendingMovie?.posterPath}")
+            ?.placeholder(R.drawable.video)
+            ?.error(R.drawable.error)  // Base URL + posterPath
+            ?.into(holder.binding.imageTrendingid)
+        holder.itemView.setOnClickListener {
+            val trendingMovie = trendingMovie
+            onitemClick(trendingMovie)
+        }
 
-    }
 
-}
+
+    }}

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.home.view.Details">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <!-- YouTube Player View -->
+    <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+        android:id="@+id/youTubePlayerView"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_marginBottom="32dp"
+
+        android:background="@drawable/youtube_searched"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/ratingTxtView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/youTubePlayerView"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="25dp"
+        android:textSize="18dp"
+        android:textFontWeight="700"
+        android:text="Rating"
+
+        />
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+
+        android:layout_width="211dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:progressTint="@android:color/holo_orange_light"
+        android:scaleX="0.5"
+        android:scaleY="0.5"
+
+        app:layout_constraintStart_toEndOf="@id/ratingTxtView"
+        app:layout_constraintTop_toBottomOf="@id/youTubePlayerView" />
+
+    <ImageView
+        android:id="@+id/addToWatchBtn"
+        android:layout_width="43dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="20dp"
+        android:src="@drawable/favorite"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/youTubePlayerView" />
+
+
+    <TextView
+        android:id="@+id/overviewTitleTxtView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/ratingTxtView"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="50dp"
+        android:textSize="22dp"
+        android:textFontWeight="700"
+        android:text="Overview"
+
+        />
+    <TextView
+        android:id="@+id/overviewTxtView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/overviewTitleTxtView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:inputType="textMultiLine"
+        android:textSize="14dp"
+        android:textFontWeight="700"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

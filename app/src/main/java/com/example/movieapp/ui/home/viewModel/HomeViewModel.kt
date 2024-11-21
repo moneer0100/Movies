@@ -1,20 +1,21 @@
 package com.example.movieapp.ui.home.viewModel
 
 import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.movieapp.model.network.ResponsState
+
 import com.example.movieapp.model.pojo.RepoMovieImp
+import com.example.movieapp.model.pojo.Result
+
 import com.example.movieapp.model.pojo.TrendingPojo
+
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
-import kotlin.math.log
 
 class HomeViewModel(private val repoMovieImp: RepoMovieImp) : ViewModel() {
     private val _trendiding=MutableStateFlow<ResponsState<TrendingPojo>>(ResponsState.Loading)
@@ -38,6 +39,29 @@ repoMovieImp.getTrending()?.catch {
                 ?.collect{data->_topRated.value=ResponsState.Success(data)}
         }
     }
+    private val _popularMovies=MutableStateFlow<ResponsState<TrendingPojo>>(ResponsState.Loading)
+    val popularMovies=_popularMovies.asStateFlow()
+    fun getPopularMovies(){
+        viewModelScope.launch(Dispatchers.IO){
+            repoMovieImp.getPopularMovies()?.catch { error->_popularMovies.value=ResponsState.Error(error) }
+                ?.collect{data->_popularMovies.value=ResponsState.Success(data)
+                    Log.d("Tag", "getPopularMovies:$data ")}
+
+        }
+    }
+    private val _dicoverMovie=MutableStateFlow<ResponsState<TrendingPojo>>(ResponsState.Loading)
+    val dicoverMovie=_dicoverMovie.asStateFlow()
+    fun getDiscoveMovie(){
+        viewModelScope.launch(Dispatchers.IO){
+            repoMovieImp.getDiscoverMovies()?.catch { error-> _dicoverMovie.value=ResponsState.Error(error) }
+                ?.collect{data->_dicoverMovie.value=ResponsState.Success(data)}
+        }
+    }
+fun addMovieDatabase(result: Result){
+viewModelScope.launch{
+    repoMovieImp.insertMovie(result)
+}
+}
 
 
 

@@ -22,4 +22,13 @@ class MovieRemoteImp private constructor(api:ApiService):MovieRemoteInterface{
       return apiService.getTopRated()
     }
 
+    override suspend fun getpopularMovies(): TrendingPojo {
+        return apiService.getPopularMovies()
+    }
+
+    override suspend fun getDiscoverMovie(): TrendingPojo {
+      return apiService.getDiscoverMovies()
+    }
+
+
 }
