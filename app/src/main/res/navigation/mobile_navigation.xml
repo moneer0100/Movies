@@ -41,12 +41,12 @@
     <fragment
         android:id="@+id/details"
         android:name="com.example.movieapp.ui.home.view.Details"
-        android:label="fragment_details"
-        tools:layout="@layout/fragment_details" >
+        android:label="Details"
+        tools:layout="@layout/fragment_details">
         <argument
             android:name="data"
+            android:defaultValue="@null"
             app:argType="com.example.movieapp.model.pojo.Result"
-            app:nullable="true"
-            android:defaultValue="@null" />
+            app:nullable="true" />
     </fragment>
 </navigation>
