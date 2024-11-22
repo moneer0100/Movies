@@ -58,8 +58,9 @@ repoMovieImp.getTrending()?.catch {
         }
     }
 fun addMovieDatabase(result: Result){
-viewModelScope.launch{
+viewModelScope.launch(Dispatchers.IO){
     repoMovieImp.insertMovie(result)
+    Log.d("add", "addMovieDatabase:${result.posterPath} ")
 }
 }
 

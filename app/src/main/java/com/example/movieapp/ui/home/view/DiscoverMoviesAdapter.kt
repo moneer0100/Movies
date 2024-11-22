@@ -34,13 +34,13 @@ class DiscoverMoviesAdapter (private val onItemClick :(Result)-> Unit): ListAdap
         val discoverMovies: Result =getItem(position)
         Glide.with(holder.itemView.context)
             .load("https://image.tmdb.org/t/p/w342${discoverMovies.posterPath}")
-            .placeholder(R.drawable.video) // صورة مؤقتة أثناء التحميل
-            .error(R.drawable.error) // صورة عند حدوث خطأ في التحميل
-            .into(holder.binding.imageTrendingid) // ImageView المستهدف
+            .placeholder(R.drawable.video)
+            .error(R.drawable.error)
+            .into(holder.binding.imageTrendingid)
             holder.itemView.setOnClickListener {
                 val discoverMovies=discoverMovies
                 onItemClick(discoverMovies)
             }
-        // إعداد النصوص الأخرى (إن وجدت)
+
     }
 }

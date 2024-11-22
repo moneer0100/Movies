@@ -97,6 +97,8 @@
             tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
 
             tools:spanCount="2" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.core.widget.NestedScrollView>

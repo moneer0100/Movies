@@ -14,13 +14,14 @@ data class TrendingPojo(
 )
 @Entity(tableName = "favorite")
 data class Result(
-    @PrimaryKey val id: Long, // تأكد من تحديد المفتاح الرئيسي
+    @PrimaryKey val id: Long,
     val backdropPath: String? = null,
-    var title: String? = null, // يمكن أن يكون null
-    val originalTitle: String? = null, // يمكن أن يكون null
-    var overview: String? = null, // يمكن أن يكون null
+    var title: String? = null,
+    val originalTitle: String? = null,
+    var overview: String? = null,
     @SerializedName("poster_path")
-    val posterPath: String? = null, // يمكن أن يكون null
+    val posterPath: String? = null,
+    @SerializedName("media_type")
     val mediaType: MediaType? = null,
     val adult: Boolean,
     val originalLanguage: OriginalLanguage? = null,
