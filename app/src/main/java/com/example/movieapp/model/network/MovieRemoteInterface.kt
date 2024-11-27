@@ -9,4 +9,5 @@ suspend fun getTrending(): TrendingPojo
 suspend fun getTopRated():TrendingPojo
 suspend fun getpopularMovies():TrendingPojo
 suspend fun getDiscoverMovie():TrendingPojo
+suspend fun getSearch(search :String):TrendingPojo
 }

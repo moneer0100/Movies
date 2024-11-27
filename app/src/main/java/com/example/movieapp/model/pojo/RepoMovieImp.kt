@@ -34,6 +34,10 @@ class RepoMovieImp(private val movieRemoteInterface: MovieRemoteInterface,
        return flowOf(movieRemoteInterface.getDiscoverMovie())
     }
 
+    override suspend fun getSearch(search: String): Flow<TrendingPojo> {
+       return flowOf(movieRemoteInterface.getSearch(search))
+    }
+
     override fun getAllFavourit(): Flow<List<Result>> {
         return localDataMovie.getAllFavourite()
     }

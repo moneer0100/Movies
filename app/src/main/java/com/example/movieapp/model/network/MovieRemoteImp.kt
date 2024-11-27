@@ -30,5 +30,9 @@ class MovieRemoteImp private constructor(api:ApiService):MovieRemoteInterface{
       return apiService.getDiscoverMovies()
     }
 
+    override suspend fun getSearch(search: String): TrendingPojo {
+        return apiService.getSearch(search = search)
+    }
+
 
 }
