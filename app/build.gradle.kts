@@ -3,7 +3,7 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     id ("kotlin-kapt")
     id ("androidx.navigation.safeargs.kotlin")
-
+    alias(libs.plugins.google.gms.google.services)
 
 
 }
@@ -55,6 +55,7 @@ dependencies {
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.firebase.components)
     implementation(libs.androidx.activity)
+    implementation(libs.firebase.auth)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
@@ -81,5 +82,9 @@ dependencies {
     implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0")
     implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.4.0")
     implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2")
+   //firebase
+    implementation ("com.google.firebase:firebase-auth-ktx:23.1.0")
+
+
 
 }
